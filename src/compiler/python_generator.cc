@@ -472,6 +472,14 @@ bool PrivateGenerator::PrintStub(
       }
     }
   }
+  out->Print("\n\n");
+  out->Print(dict, "class $Service$AioStub($Service$Stub):\n");
+  {
+    IndentScope raii_class_indent(out);
+    out->Print(
+        "\"\"\"Different (but identical) stub type to aid aio typing.\"\"\"\n");
+    out->Print("pass\n");
+  }
   return true;
 }
 
